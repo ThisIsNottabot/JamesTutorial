@@ -6,6 +6,12 @@ public class GameManager : MonoBehaviour {
 	public bool gamePaused;
 	private int score = 0;
 
+
+	void Awake ()
+	{
+			DontDestroyOnLoad (transform.gameObject);
+	}
+
 	void Update () 
 	{
 		if(Input.GetButtonDown("Pause"))
@@ -13,7 +19,7 @@ public class GameManager : MonoBehaviour {
 			gamePaused = !gamePaused;
 		}
 
-		if(score > 6)
+		if(score > 10)
 		{
 			Application.LoadLevel("scene02");
 		}
