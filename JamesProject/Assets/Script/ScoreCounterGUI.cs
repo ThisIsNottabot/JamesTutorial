@@ -8,6 +8,7 @@ public class ScoreCounterGUI : MonoBehaviour {
 
 	void Start () 
 	{
+		gManTrans = GameObject.Find ("gameManager").transform;
 		gMan = gManTrans.GetComponent<GameManager>();
 	}
 	

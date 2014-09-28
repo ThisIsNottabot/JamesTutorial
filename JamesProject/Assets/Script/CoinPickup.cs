@@ -9,12 +9,13 @@ public class CoinPickup : MonoBehaviour {
 
 	void Start () 
 	{
-
+		gManTrans = GameObject.Find ("gameManager").transform;
+		gMan = gManTrans.GetComponent<GameManager> ();
 	}
 
 	void OnTriggerEnter2D( Collider2D col )
 	{
-		gameManager.IncreaseScore(value);
+		gMan.IncreaseScore(value);
 		Destroy (gameObject);
 	}
 }

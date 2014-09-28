@@ -6,10 +6,17 @@ public class GameManager : MonoBehaviour {
 	public bool gamePaused;
 	private int score = 0;
 
-
 	void Awake ()
 	{
-			DontDestroyOnLoad (transform.gameObject);
+		DontDestroyOnLoad (transform.gameObject);
+
+		foreach(GameObject obj in GameObject.FindGameObjectsWithTag("gmTag")) 
+		{
+			if(obj != gameObject)
+			{
+				Destroy(gameObject);
+			}
+		}
 	}
 
 	void Update () 

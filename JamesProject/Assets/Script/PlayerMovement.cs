@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start ()
 	{
+		gManTrans = GameObject.Find ("gameManager").transform;
 		gMan = gManTrans.GetComponent<GameManager> ();
 	}
 
