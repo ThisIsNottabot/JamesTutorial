@@ -3,10 +3,11 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-	public Transform gc, gManTransform;
+	public Transform gc, gManTrans;
 	GameManager gMan;
 
 	public float jumpStrength;
+	public float speed;
 
 	bool grounded = true;
 	bool facingLeft = false;
@@ -17,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start ()
 	{
-		gMan = gManTransform.GetComponent<GameManager> ();
+		gMan = gManTrans.GetComponent<GameManager> ();
 	}
 
 	void Update () 
@@ -70,11 +71,11 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if(Input.GetAxis ("Horizontal") > 0)
 		{
-			rigidbody2D.AddForce( new Vector2( 1000 * Time.deltaTime, 0 ));
+			rigidbody2D.AddForce( new Vector2( 1000 * speed * Time.deltaTime, 0 ));
 		}
 		else if(Input.GetAxis ("Horizontal") < 0)
 		{
-			rigidbody2D.AddForce( new Vector2( -1000 * Time.deltaTime, 0 ));
+			rigidbody2D.AddForce( new Vector2( -1000 * speed * Time.deltaTime, 0 ));
 		}
 		
 		if(Input.GetButtonDown("Jump") && grounded)
